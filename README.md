@@ -5,7 +5,7 @@ An **AI-powered news enrichment platform** inspired by **SWEN's architecture** �
 ---
 
 ## 🚀 Live Prototype
-🔗 **URL:** [https://ai-news-intelligence-production.up.railway.app/api/v1/news/Africa](#)  
+🔗 **URL:** [https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football](#)  
 Returns clean JSON output directly viewable in-browser.
 
 ---
