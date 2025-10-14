@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class NewsController {
     private final NewsIngestionService newsIngestionService;
 
-    @GetMapping("/search")
+    @GetMapping(value = "/search", produces = "application/json")
     public ResponseEntity<NewsItemDTO> searchNews(@RequestParam("q") String query) {
         return ResponseEntity.ok(newsIngestionService.fetchArticle(query));
     }
 
-    @GetMapping("/{searchParam}")
+    @GetMapping(value = "/{searchParam}", produces = "application/json")
     public ResponseEntity<NewsItemDTO> getArticleByParam(@PathVariable String searchParam) {
         return ResponseEntity.ok(newsIngestionService.getArticleByParam(searchParam));
     }
