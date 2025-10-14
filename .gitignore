@@ -15,7 +15,7 @@ target/
 !.env.example
 
 # Application configuration
-**/application-*.properties
+**/src/main/resources/application-development.properties
 !**/application.properties
 **/application-*.yml
 !**/application.yml

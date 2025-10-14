@@ -3,12 +3,14 @@ package com.example.ai_news_intelligence.service;
 import com.example.ai_news_intelligence.dto.NewsItemDTO;
 import com.example.ai_news_intelligence.dto.response.QwenResponse;
 import com.example.ai_news_intelligence.dto.RawNewsDTO;
+import com.example.ai_news_intelligence.exception.BaseException;
 import com.example.ai_news_intelligence.model.NewsItem;
 import com.example.ai_news_intelligence.repository.NewsItemRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -68,7 +70,7 @@ public class NewsIngestionService {
         // make request to QwenEnrichmentService
         if (newsDTO == null) {
             log.info("No news found");
-            return null;
+            throw new BaseException(HttpStatus.BAD_REQUEST, "No news found for the specified keyword");
         }
 
         log.info("Attempting to assemble news....");
@@ -84,6 +86,6 @@ public class NewsIngestionService {
             return newsAssemblerService.convertToDTO(optionalNewsItem.get());
         }
 
-        throw new RuntimeException("No news found for query param: " + param);
+        throw new BaseException(HttpStatus.BAD_REQUEST, "No news found for the specified keyword, please call the /search endpoint to trigger calls to fetch the latest news");
     }
 }

@@ -8,12 +8,14 @@ import com.example.ai_news_intelligence.dto.meta.Context;
 import com.example.ai_news_intelligence.dto.meta.Geo;
 import com.example.ai_news_intelligence.dto.meta.Media;
 import com.example.ai_news_intelligence.dto.response.QwenResponse;
+import com.example.ai_news_intelligence.exception.BaseException;
 import com.example.ai_news_intelligence.model.NewsItem;
 import com.example.ai_news_intelligence.repository.NewsItemRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,6 +35,10 @@ public class NewsAssemblerService {
     private final ObjectMapper objectMapper;
 
     public NewsItemDTO assemble(RawNewsDTO newsDTO, String query) {
+        if (newsDTO.getArticles().isEmpty()) {
+            throw new BaseException(HttpStatus.BAD_REQUEST, "No articles found. Please try searching with another keyword");
+        }
+
         Article article = newsDTO.getArticles().getFirst();
         LocalDateTime now = LocalDateTime.now();
 
@@ -86,7 +92,7 @@ public class NewsAssemblerService {
             log.info("Attempting to get video url");
             videoURL = youTubeClientService.getFirstVideoUrl(aiResponseDTO.getVideos());
         } catch (Exception e) {
-            log.info("An exception occurred when trying to get vide url, see message: {}", e.getMessage(), e);
+            log.info("An exception occurred when trying to get video url, see message: {}", e.getMessage(), e);
         }
         media.setRelatedVideoUrl(videoURL);
         newsItemDTO.setMedia(media);
