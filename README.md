@@ -2,10 +2,16 @@
 
 An **AI-powered news enrichment platform** inspired by **SWEN's architecture** — transforming plain text news into **contextually intelligent, media-rich** stories using **Qwen LLM**, **Bing News API**, **YouTube Data API**, and **Wikipedia enrichment**.
 
+## 🌐 Base URL
+All API endpoints are relative to the following base URL:
+```
+https://ai-news-intelligence-production.up.railway.app/api/v1
+```
+
 ---
 
 ## 🚀 Live Prototype
-🔗 **URL:** [https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football](https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football)  
+🔗 **URL:** <a href="https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football" target="_blank">https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football</a>  
 Returns clean JSON output directly viewable in-browser.
 
 > **Note:** This endpoint returns cached results. To fetch fresh news, use the search endpoint below.
@@ -14,7 +20,7 @@ Returns clean JSON output directly viewable in-browser.
 
 - **Search for news articles**:
   ```
-  GET /api/v1/news/search?q={keyword}
+  GET /news/search?q={keyword}
   ```
   Fetches the latest news for the specified search keyword. 
   
@@ -131,7 +137,7 @@ mvn spring-boot:run -Dspring-boot.run.profiles=development  # or production
 2. Available Endpoints:
    - **Search for news articles**:
      ```
-     GET /api/v1/news/search?q={keyword}
+     GET /news/search?q={keyword}
      ```
      Fetches the latest news for the specified search keyword.
 
