@@ -5,7 +5,7 @@ An **AI-powered news enrichment platform** inspired by **SWEN's architecture** �
 ---
 
 ## 🚀 Live Prototype
-🔗 **URL:** [https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football](#)  
+🔗 **URL:** [https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football](https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football)  
 Returns clean JSON output directly viewable in-browser.
 
 > **Note:** This endpoint returns cached results. To fetch fresh news, use the search endpoint below.
