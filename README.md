@@ -11,8 +11,8 @@ https://ai-news-intelligence-production.up.railway.app/api/v1
 ---
 
 ## 🚀 Live Prototype
-🔗 **URL:** <a href="https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football" target="_blank">https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football</a>  
-Returns clean JSON output directly viewable in-browser.
+🔗 **URL:** [https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football](https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football)  
+Returns clean JSON output directly viewable in-browser. (Right-click and select "Open in new tab" to keep this page open)
 
 > **Note:** This endpoint returns cached results. To fetch fresh news, use the search endpoint below.
 
