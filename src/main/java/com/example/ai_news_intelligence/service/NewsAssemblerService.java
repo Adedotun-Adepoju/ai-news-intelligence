@@ -43,7 +43,9 @@ public class NewsAssemblerService {
         LocalDateTime now = LocalDateTime.now();
 
         NewsItemDTO newsItemDTO = new NewsItemDTO();
+        String uuid = UUID.randomUUID().toString();
 
+        newsItemDTO.setId(uuid);
         newsItemDTO.setTitle(article.getTitle());
         newsItemDTO.setBody(article.getContent());
         newsItemDTO.setSourceUrl(article.getUrl());
@@ -67,6 +69,7 @@ public class NewsAssemblerService {
         }
 
         // Map AiResponseDTO fields to NewsItem
+
         newsItemDTO.setSummary(aiResponseDTO.getSummary());
         newsItemDTO.setTags(aiResponseDTO.getTags());
         newsItemDTO.setRelevanceScore(aiResponseDTO.getRelevanceScore());
@@ -109,7 +112,7 @@ public class NewsAssemblerService {
         }
         
         NewsItemDTO dto = new NewsItemDTO();
-        dto.setId(String.valueOf(newsItem.getId()));
+        dto.setId(String.valueOf(newsItem.getUniqueId()));
         dto.setTitle(newsItem.getTitle());
         dto.setBody(newsItem.getBody());
         dto.setSummary(newsItem.getSummary());
@@ -152,6 +155,7 @@ public class NewsAssemblerService {
     private NewsItem saveNewsItem(NewsItemDTO newsItemDTO, String queryParam) {
         log.info("Saving news item.....");
         NewsItem newsItem = new NewsItem();
+        newsItem.setUniqueId(newsItemDTO.getId());
         newsItem.setTitle(newsItemDTO.getTitle());
         newsItem.setBody(newsItemDTO.getBody());
         

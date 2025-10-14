@@ -8,8 +8,7 @@ import org.hibernate.annotations.JdbcType;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.sql.SQLType;
-import java.util.Map;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -20,6 +19,9 @@ public class NewsItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
+    private String uniqueId;
+
     private String queryParam;
 
     private String title;
@@ -27,6 +29,7 @@ public class NewsItem {
     @Lob
     @Column(columnDefinition = "TEXT")
     private String body;
+
     private String summary;
     private String tags;
     private String relevanceScore;
