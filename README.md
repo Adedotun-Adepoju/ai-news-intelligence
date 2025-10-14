@@ -167,24 +167,6 @@ mvn spring-boot:run -Dspring-boot.run.profiles=development  # or production
 
 All media URLs are validated and publicly accessible.
 
-## 🧱 Infrastructure-as-Code (Terraform)
-
-Multi-cloud ready setup for AWS + Alibaba Cloud.
-
-Creates:
-- EKS/ACK Kubernetes clusters
-- Container registry
-- Secrets management (Qwen, Bing, YouTube keys)
-- CI/CD pipelines via GitHub Actions or GitLab CI
-
-Example structure:
-```
-infra/
-├── main.tf
-├── variables.tf
-├── outputs.tf
-└── terraform.tfvars
-```
 
 ## 🏁 Summary
 
