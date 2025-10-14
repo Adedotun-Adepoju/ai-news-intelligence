@@ -134,8 +134,8 @@ mvn spring-boot:run -Dspring-boot.run.profiles=development  # or production
 - **Justification:** Explains why certain media were chosen, including video selection criteria
 - **Contextual Enrichment:**
   - Wikipedia snippet
-  - Social sentiment (e.g., "74% positive mentions on X in last 24h")
-  - Search trend (e.g., "'SA renewables' +150% this week")
+  - Social sentiment: Analysis of public opinion from social media platforms, showing the overall sentiment distribution and engagement levels
+  - Search trend: Indicates the relative popularity and growth of related search terms over time.
   - Geo context (lat, lng, and map_url for ArcGIS display)
   - Related topics and entities for enhanced content discovery
 
