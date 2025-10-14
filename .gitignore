@@ -4,6 +4,66 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Application properties
+*.properties
+!gradle-wrapper.properties
+!maven-wrapper.properties
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Application configuration
+**/application-*.properties
+!**/application.properties
+**/application-*.yml
+!**/application.yml
+**/application-*.yaml
+!**/application.yaml
+
+# Secrets and credentials
+**/secrets.*
+**/credentials.*
+**/*.key
+**/*.p12
+**/*.pem
+**/*.crt
+**/*.cer
+**/*.jks
+**/keystore.*
+**/truststore.*
+
+# Logs
+*.log
+logs/
+
+# Local development files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+.springBeans
+.factorypath
+
+# Build files
+build/
+.gradle/
+.mvn/
+
+# System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
 ### STS ###
 .apt_generated
 .classpath
