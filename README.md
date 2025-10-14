@@ -49,22 +49,64 @@ Returns clean JSON output directly viewable in-browser.
 
 ### Configuration
 
-Create an `application.properties` or `application.yml` file:
+Update the appropriate properties file based on your environment:
+
+1. For development:
+   ```bash
+   src/main/resources/application-development.properties
+   ```
+
+2. For production:
+   ```bash
+   src/main/resources/application-production.properties
+   ```
+
+### Configuration Properties
+
+Update the following required properties in the respective file:
 
 ```properties
-# Database
-spring.datasource.url=jdbc:mysql://localhost:3306/swen
-spring.datasource.username=root
-spring.datasource.password=secret
+# Database Configuration
+spring.datasource.url=jdbc:mysql://your_db_host/your_db_name
+spring.datasource.username=your_db_username
+spring.datasource.password=your_db_password
 
-# API Keys
-bing.api.key=your_bing_api_key
+# API Keys (replace with your actual keys)
+news.api.key=your_news_api_key
 qwen.api.key=your_qwen_api_key
 youtube.api.key=your_youtube_api_key
+```
 
-# App Config
-spring.application.name=swen-backend
-server.port=8080
+### 📝 Obtaining API Keys
+
+#### 1. News API Key
+- **Sign Up**: [News API Registration](https://newsapi.org/register)
+- **Steps**:
+  1. Register for a free account
+  2. Verify your email
+  3. Get your API key from the dashboard
+
+#### 2. Qwen (DashScope) API Key
+- **Sign Up**: [Alibaba Cloud DashScope](https://dashscope.aliyun.com/)
+- **Steps**:
+  1. Create an account
+  2. Navigate to API Key Management
+  3. Create a new API key
+
+#### 3. YouTube Data API Key
+- **Sign Up**: [Google Cloud Console](https://console.cloud.google.com/)
+- **Steps**:
+  1. Create a new project
+  2. Enable YouTube Data API v3
+  3. Go to Credentials
+  4. Create API key
+  5. (Recommended) Restrict the API key for security
+
+After obtaining all API keys, add them to the appropriate configuration file.
+
+To run with a specific profile, use:
+```bash
+mvn spring-boot:run -Dspring-boot.run.profiles=development  # or production
 ```
 
 ## 🚀 Running the Application
