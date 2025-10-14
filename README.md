@@ -8,6 +8,18 @@ An **AI-powered news enrichment platform** inspired by **SWEN's architecture** �
 🔗 **URL:** [https://ai-news-intelligence-production.up.railway.app/api/v1/news/african-football](#)  
 Returns clean JSON output directly viewable in-browser.
 
+> **Note:** This endpoint returns cached results. To fetch fresh news, use the search endpoint below.
+
+## 🔍 Search Endpoint
+
+- **Search for news articles**:
+  ```
+  GET /api/v1/news/search?q={keyword}
+  ```
+  Fetches the latest news for the specified search keyword. 
+  
+  > **Important:** This endpoint triggers a new search and saves the results in the database to optimize token usage. Subsequent requests for the same keyword will return the cached results. Use this endpoint when you need fresh data.
+
 ---
 
 ## 🧩 Alignment with SWEN's Architecture
