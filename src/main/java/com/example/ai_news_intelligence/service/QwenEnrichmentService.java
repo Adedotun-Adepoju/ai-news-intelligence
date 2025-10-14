@@ -44,29 +44,30 @@ public class QwenEnrichmentService {
      */
 
 
-    @Cacheable(value = "qwenEnrichment", key = "#article.getTitle() + #article.getDescription()")
+//    @Cacheable(value = "qwenEnrichment", key = "#article.getTitle() + #article.getDescription()")
     public QwenResponse enrichArticle(Article article) {
         log.info("Title: {}, description: {}", article.getTitle(), article.getDescription());
-        String prompt = String.format("""
+        String prompt = """
                      {
                         "summary": "...",                               // A concise 2-sentence summary
                         "tags": ["#tag1", "#tag2"],                     // 3–5 relevant hashtags (use # prefix)
                         "relevance_score": 0.0,                         // A relevance score for African readers between 0.0 and 1.0
-                        "images": "...",                            // image search query
-                        "videos": "..."                            // video search query
+                        "images": "...",                                // image search query
+                        "videos": "...",                               // video search query
                         "media_justification": "...",                   // short rationale
-                        "wikipedia_topic": "...",                   // A 1-sentence Wikipedia snippet about the main topic
+                        "wikipedia_topic": "...",                      // A 1-sentence Wikipedia snippet about the main topic
                         "search_keyword": "...",
                         "longitude": "..",
                         "latitude": "..",
                         "map_url": "..",
-                         "social_sentiment": "..."                    // 74 percent positive mentions on X in last 24h
+                        "social_sentiment": "..."                      // Analysis of public sentiment from social media. Should back it up with stats (e.g., \"74 percent positive in the last hours, 15 percent neutral, 11 percent negative with high engagement\")
                      }
-                      You are an AI journalist assistant. Analyze the following article and fill the fields:
-                      Title: %s
-                      Body: %s
-                """.formatted(article.getTitle(), article.getDescription())
-        );
+                     You are an AI journalist assistant. Analyze the following article and fill the fields:
+                     Title: %s
+                     Body: %s
+                """.formatted(
+                article.getTitle() != null ? article.getTitle() : "",
+                article.getDescription() != null ? article.getDescription() : "");
         Message message = new Message();
         message.setContent(prompt);
         message.setRole("user");
