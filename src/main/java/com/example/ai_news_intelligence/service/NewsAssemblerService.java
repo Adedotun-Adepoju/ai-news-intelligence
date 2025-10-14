@@ -49,6 +49,7 @@ public class NewsAssemblerService {
         newsItemDTO.setTitle(article.getTitle());
         newsItemDTO.setBody(article.getContent());
         newsItemDTO.setSourceUrl(article.getUrl());
+        newsItemDTO.setPublisher(article.getAuthor());
         newsItemDTO.setPublishedAt(article.getPublishedAt());
         newsItemDTO.setIngestedAt(now.toString());
 
