@@ -26,6 +26,16 @@ Returns clean JSON output directly viewable in-browser. (Right-click and select 
   
   > **Important:** This endpoint triggers a new search and saves the results in the database to optimize token usage. Subsequent requests for the same keyword will return the cached results. Use this endpoint when you need fresh data.
 
+### Example Request
+
+To search for news about the UEFA Champions League:
+
+```
+GET https://ai-news-intelligence-production.up.railway.app/api/v1/news/search?q=uefa-champions-league
+```
+
+This will return a JSON response with the latest news articles related to the UEFA Champions League.
+
 ---
 
 ## 🧩 Alignment with SWEN's Architecture
