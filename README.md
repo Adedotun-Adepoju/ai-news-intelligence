@@ -31,10 +31,10 @@ Returns clean JSON output directly viewable in-browser. (Right-click and select 
 To search for news about the UEFA Champions League:
 
 ```
-GET https://ai-news-intelligence-production.up.railway.app/api/v1/news/search?q=uefa-champions-league
+GET https://ai-news-intelligence-production.up.railway.app/api/v1/news/search?q=english-premier-league
 ```
 
-This will return a JSON response with the latest news articles related to the UEFA Champions League.
+This will return a JSON response with the latest news articles related to the English Premier League.
 
 ---
 
